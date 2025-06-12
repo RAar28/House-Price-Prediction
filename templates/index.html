@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Boston Housing Price Prediction</title>
+        <style>
+        *{
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        h2{
+            margin-top: 20px;
+            margin-bottom: 20px;
+            font-family: 'Courier New', Courier, monospace;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            display: grid;
+            flex-direction: column;
+            gap: 7px 10px;
+            margin-bottom: 30px; 
+            grid-template-columns: 100px 300px;
+        }
+        form > label {
+    display: inline-block;
+    width: 100px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    line-height: 1.4;
+    padding-top: 4px;
+        }
+
+        form > input[type="text"] {
+    display: inline-block;
+    width: 300px;
+    padding: 4px 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 10px;
+        }
+        form > label,
+form > input[type="text"] {
+    display: inline-block;
+    vertical-align: middle;
+}
+        input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+        }
+        
+        </style>
+    </head>
+    <body>
+        <h2>  Boston Housing Price Prediction</h2>
+        <form action="/predict" method="post">
+
+            <label>CRIM:</label>
+            <input type="text" name="CRIM">
+            <label>ZN:</label>
+            <input type="text" name="ZN">
+            <label>INDUS:</label>
+            <input type="text" name="INDUS">
+            <label>CHAS:</label>
+            <input type="text" name="CHAS">
+            <label>NOX:</label>
+            <input type="text" name="NOX">
+            <label>RM:</label>
+            <input type="text" name="RM">
+            <label>AGE:</label>
+            <input type="text" name="AGE">
+            <label>DIS:</label>
+            <input type="text" name="DIS">
+            <label>RAD:</label>
+            <input type="text" name="RAD">
+            <label>TAX:</label>
+            <input type="text" name="TAX">
+            <label>PTRATIO:</label>
+            <input type="text" name="PTRATIO">
+            <label>B:</label>
+            <input type="text" name="B">
+            <label>LSTAT:</label>
+            <input type="text" name="LSTAT">
+
+            <br>
+            <input type="submit" value="Predict">
+        </form>
+
+        {% if prediction_text %}
+        <h3>{{ prediction_text }}</h3>
+        {% endif %}
+    </body>
+</html>
